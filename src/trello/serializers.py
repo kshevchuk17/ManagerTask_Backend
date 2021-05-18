@@ -43,3 +43,11 @@ class ProjectDetailSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Project
 		fields = ('user', 'name', 'columns')
+
+# =====================================================================================================================
+
+
+class ProjectListSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Project
+		fields = '__all__'
