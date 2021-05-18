@@ -18,5 +18,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include('trello.urls'))
+    path('api/v1/', include('trello.urls')),
+
+    path('', include('djoser.urls')),
+    path('', include('djoser.urls.jwt')),
 ]
