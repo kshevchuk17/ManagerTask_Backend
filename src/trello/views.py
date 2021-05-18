@@ -9,7 +9,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 class ProjectDetailView(generics.RetrieveUpdateDestroyAPIView):
 	serializer_class = ProjectDetailSerializer
 	queryset = Project.objects.all()
-	# permission_classes = (IsAuthenticated, )
+	permission_classes = (IsAuthenticated, )
 
 	def get_object(self):
 		obj = get_object_or_404(self.queryset, user=self.request.user)
@@ -18,16 +18,16 @@ class ProjectDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 class ProjectCreateView(generics.CreateAPIView):
 	serializer_class = ProjectDetailSerializer
-	# permission_classes = (IsAuthenticated, )
+	permission_classes = (IsAuthenticated, )
 
 	def perform_create(self, serializer):
 		serializer.save(user=self.request.user)
 
 
 class ProjectListSerializer(generics.ListAPIView):
-	serializer_class = ProjectDetailSerializer
+	serializer_class = ProjectListSerializer
 	queryset = Project.objects.all()
-	# permission_classes = (IsAuthenticated, )
+	permission_classes = (IsAuthenticated, )
 
 	def get_queryset(self):
 		user = self.request.user
