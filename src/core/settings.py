@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'trello',
     'rest_framework',
-
+    'djoser',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
