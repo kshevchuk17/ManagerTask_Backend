@@ -8,18 +8,6 @@ class UserDetailSerializer(serializers.ModelSerializer):
 		fields = '__all__'
 
 
-class ColumnDetailSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = Column
-		fields = '__all__'
-
-
-class TaskDetailSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = Task
-		fields = '__all__'
-
-
 class SubtaskDetailSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Subtask
@@ -32,12 +20,26 @@ class CommentDetailSerializer(serializers.ModelSerializer):
 		fields = '__all__'
 
 
+class TaskDetailSerializer(serializers.ModelSerializer):
+	subtasks = SubtaskDetailSerializer(read_only=True, many=True)
+	comments = CommentDetailSerializer(read_only=True, many=True)
+
+	class Meta:
+		model = Task
+		fields = ('owner', 'title', 'due_date', 'attachments', 'description', 'subtasks', 'comments')
+
+
+class ColumnDetailSerializer(serializers.ModelSerializer):
+	tasks = TaskDetailSerializer(read_only=True, many=True)
+
+	class Meta:
+		model = Column
+		fields = ('name', 'tasks')
+
+
 class ProjectDetailSerializer(serializers.ModelSerializer):
-	column = ColumnDetailSerializer(read_only=True, many=True)
-	task = TaskDetailSerializer(read_only=True, many=True)
-	subtask = SubtaskDetailSerializer(read_only=True, many=True)
-	comment = ColumnDetailSerializer(read_only=True, many=True)
+	columns = ColumnDetailSerializer(read_only=True, many=True)
 
 	class Meta:
 		model = Project
-		fields = ('user', 'name', 'column', 'task', 'subtask', 'comment')
+		fields = ('user', 'name', 'columns')
