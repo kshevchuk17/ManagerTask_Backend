@@ -1,21 +1,29 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import *
+from .views.project_view import *
+from .views.column_view import *
+from .views.task_view import *
+from .views.subtask_view import *
+from .views.comment_view import *
+from .views.attachments_view import *
 
 
 urlpatterns = [
-	path('project/detail/', ProjectDetailView.as_view()),
+	path('project/detail/<int:pk>/', ProjectDetailView.as_view()),
 	path('project/create/', ProjectCreateView.as_view()),
 	path('project/all/', ProjectListSerializer.as_view()),
+	path('project/add/manager/', ProjectAddManagerView.as_view()),
 
 	path('project/column/<int:pk>/', ColumnDetailView.as_view()),
 	path('project/column/task/<int:pk>/', TaskDetailView.as_view()),
 	path('project/column/task/subtask/<int:pk>/', SubtaskDetailView.as_view()),
 	path('project/column/task/comment/<int:pk>/', CommentDetailView.as_view()),
+	path('project/column/task/attachment/<int:pk>/', AttachmentDetailView.as_view()),
 
 	path('project/column/create/', ColumnCreateView.as_view()),
 	path('project/column/task/', TaskCreateView.as_view()),
 	path('project/column/task/subtask/', SubtaskCreateView.as_view()),
 	path('project/column/task/comment/', CommentCreateView.as_view()),
+	path('project/column/task/attachment/', AttachmentCreateView.as_view()),
 
 ]

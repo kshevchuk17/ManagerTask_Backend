@@ -7,7 +7,8 @@ User = get_user_model()
 
 
 class Project(models.Model):
-	user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, related_name='projects')
+	user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='projects')
+	manager = models.ManyToManyField(User, null=True, related_name='project', blank=True)
 	name = models.CharField(verbose_name='Name', max_length=255)
 
 
@@ -29,14 +30,14 @@ class Task(models.Model):
 	column = models.ForeignKey(Column, on_delete=models.CASCADE, null=False, related_name='tasks')
 	assignee = models.ForeignKey(User, on_delete=models.CASCADE, null=False, related_name='assigned_task')
 	title = models.CharField(verbose_name='Title', max_length=255)
-	due_date = models.DateField(verbose_name='Due date')
+	due_date = models.DateField(verbose_name='Due date', auto_now_add=True)
 	description = models.TextField(verbose_name='Description')
 
 
 class Subtask(models.Model):
 	task = models.ForeignKey(Task, on_delete=models.CASCADE, null=False, related_name='subtasks')
 	title = models.CharField(verbose_name='Title', max_length=255)
-	due_date = models.DateField(verbose_name='Due date')
+	due_date = models.DateField(verbose_name='Due date', auto_now_add=True)
 	description = models.TextField(verbose_name='Description')
 
 
