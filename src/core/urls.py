@@ -19,6 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('trello.urls')),
+    path('base-auth/', include('rest_framework.urls')),
 
     path('', include('djoser.urls')),
     path('', include('djoser.urls.jwt')),

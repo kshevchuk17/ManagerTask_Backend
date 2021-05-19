@@ -1,18 +1,27 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
+from django.db.models.signals import post_save
+from django.dispatch.dispatcher import receiver
 
 User = get_user_model()
 
 
 class Project(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE, null=False, related_name='projects')
+	user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, related_name='projects')
 	name = models.CharField(verbose_name='Name', max_length=255)
 
 
 class Column(models.Model):
 	project = models.ForeignKey(Project, on_delete=models.CASCADE, null=False, related_name='columns')
 	name = models.CharField(verbose_name='Name', max_length=255)
+
+
+@receiver(post_save, sender=Project)
+def create_columns(sender, instance, created, **kwargs):
+	if created:
+		Column.objects.create(project=instance, name='To do')
+		Column.objects.create(project=instance, name='In testing')
+		Column.objects.create(project=instance, name='Done')
 
 
 class Task(models.Model):
