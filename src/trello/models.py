@@ -27,13 +27,13 @@ def create_columns(sender, instance, created, **kwargs):
 class Task(models.Model):
 	owner = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, related_name='tasks')
 	column = models.ForeignKey(Column, on_delete=models.CASCADE, null=False, related_name='tasks')
+	assignee = models.ForeignKey(User, on_delete=models.CASCADE, null=False, related_name='assigned_task')
 	title = models.CharField(verbose_name='Title', max_length=255)
 	due_date = models.DateField(verbose_name='Due date')
 	description = models.TextField(verbose_name='Description')
 
 
 class Subtask(models.Model):
-	owner = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, related_name='subtasks')
 	task = models.ForeignKey(Task, on_delete=models.CASCADE, null=False, related_name='subtasks')
 	title = models.CharField(verbose_name='Title', max_length=255)
 	due_date = models.DateField(verbose_name='Due date')
