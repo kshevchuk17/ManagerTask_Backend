@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
          'default': {
              'ENGINE': 'django.db.backends.postgresql_psycopg2',
-             'NAME': 'django_db',
-             'USER': 'user_name',
+             'NAME': 'trello',
+             'USER': 'kkk',
              'PASSWORD': 'password',
              'HOST': '127.0.0.1',
              'PORT': '5432',
