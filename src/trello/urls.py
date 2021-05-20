@@ -21,9 +21,9 @@ urlpatterns = [
 	path('project/column/task/attachment/<int:pk>/', AttachmentDetailView.as_view()),
 
 	path('project/column/create/', ColumnCreateView.as_view()),
-	path('project/column/task/', TaskCreateView.as_view()),
-	path('project/column/task/subtask/', SubtaskCreateView.as_view()),
-	path('project/column/task/comment/', CommentCreateView.as_view()),
-	path('project/column/task/attachment/', AttachmentCreateView.as_view()),
+	path('project/column/task/create/', TaskCreateView.as_view()),
+	path('project/column/task/subtask/create/', SubtaskCreateView.as_view()),
+	path('project/column/task/comment/create/', CommentCreateView.as_view()),
+	path('project/column/task/attachment/create/', AttachmentCreateView.as_view()),
 
 ]
