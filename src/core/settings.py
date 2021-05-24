@@ -83,8 +83,8 @@ DATABASES = {
          'default': {
              'ENGINE': 'django.db.backends.postgresql_psycopg2',
              'NAME': 'trello',
-             'USER': 'kkk',
-             'PASSWORD': 'password',
+             'USER': 'kirill',
+             'PASSWORD': '12345678',
              'HOST': '127.0.0.1',
              'PORT': '5432',
      }
@@ -137,4 +137,26 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=100),
+}
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'kirillshevchuk2001@gmail.com'
+EMAIL_PORT = '465'
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = 'kirillshevchuk2001@gmail.com'
+
+DJOSER = {
+    # 'LOGIN_FIELD': 'email',
+    'PASSWORD_RESET_CONFIRM_URL': '/confirm_password/{uid}/{token}',
+    'ACTIVATION_URL': '/activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': True,
+    'SEND_CONFIRMATION_EMAIL': True,
+    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+    'SERIALIZERS': {},
+    'EMAIL': {
+                'activation': 'trello.email.ActivationEmail',
+                'confirmation': 'trello.email.ConfirmationEmail',
+                'password_reset': 'trello.email.PasswordResetEmail',
+                'password_changed_confirmation': 'trello.email.PasswordChangedConfirmationEmail',
+    }
 }
