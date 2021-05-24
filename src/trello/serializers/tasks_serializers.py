@@ -12,4 +12,4 @@ class TaskDetailSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Task
-		fields = ('owner', 'column', 'assignee', 'title', 'attachments', 'description', 'subtasks', 'comments')
+		fields = ('owner', 'column', 'assignee', 'title', 'attachments', 'is_complete', 'description', 'subtasks', 'comments')

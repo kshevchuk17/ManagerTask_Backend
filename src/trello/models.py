@@ -33,6 +33,7 @@ class Task(models.Model):
 	title = models.CharField(verbose_name='Title', max_length=255)
 	due_date = models.DateField(verbose_name='Due date',  null=True, blank=True)
 	created_at = models.DateField(verbose_name='Due date', auto_now_add=True)
+	is_complete = models.BooleanField(verbose_name='Is_Complete', default=False)
 	description = models.TextField(verbose_name='Description')
 
 
@@ -41,6 +42,7 @@ class Subtask(models.Model):
 	title = models.CharField(verbose_name='Title', max_length=255)
 	created_at = models.DateField(verbose_name='Due date', auto_now_add=True)
 	due_date = models.DateField(verbose_name='Due date', null=True, blank=True)
+	is_complete = models.BooleanField(verbose_name='Is_Complete', default=False)
 	description = models.TextField(verbose_name='Description')
 
 
