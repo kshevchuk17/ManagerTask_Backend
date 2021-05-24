@@ -12,7 +12,6 @@ urlpatterns = [
 	path('project/detail/<int:pk>/', ProjectDetailView.as_view()),
 	path('project/create/', ProjectCreateView.as_view()),
 	path('project/all/', ProjectListSerializer.as_view()),
-	path('project/add_manager/', ProjectAddManagerView.as_view()),
 
 	path('project/column/<int:pk>/', ColumnDetailView.as_view()),
 	path('project/column/task/<int:pk>/', TaskDetailView.as_view()),
