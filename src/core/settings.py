@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'rest_framework_simplejwt',
+    # 'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -132,6 +134,7 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ),
 }
 
@@ -145,18 +148,25 @@ EMAIL_PORT = '465'
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'kirillshevchuk2001@gmail.com'
 
-DJOSER = {
-    # 'LOGIN_FIELD': 'email',
-    'PASSWORD_RESET_CONFIRM_URL': '/confirm_password/{uid}/{token}',
-    'ACTIVATION_URL': '/activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': True,
-    'SEND_CONFIRMATION_EMAIL': True,
-    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
-    'SERIALIZERS': {},
-    'EMAIL': {
-                'activation': 'trello.email.ActivationEmail',
-                'confirmation': 'trello.email.ConfirmationEmail',
-                'password_reset': 'trello.email.PasswordResetEmail',
-                'password_changed_confirmation': 'trello.email.PasswordChangedConfirmationEmail',
-    }
-}
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'EMAIL'
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+
+# DJOSER = {
+#     'LOGIN_FIELD': 'email',
+#     'PASSWORD_RESET_CONFIRM_URL': '/confirm_password/{uid}/{token}',
+#     'ACTIVATION_URL': '/activate/{uid}/{token}',
+#     'SEND_ACTIVATION_EMAIL': True,
+#     'SEND_CONFIRMATION_EMAIL': True,
+#     'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+#     'SERIALIZERS': {},
+#     'EMAIL': {
+#                 'activation': 'trello.email.ActivationEmail',
+#                 'confirmation': 'trello.email.ConfirmationEmail',
+#                 'password_reset': 'trello.email.PasswordResetEmail',
+#                 'password_changed_confirmation': 'trello.email.PasswordChangedConfirmationEmail',
+#     }
+# }
