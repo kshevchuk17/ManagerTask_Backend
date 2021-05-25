@@ -31,17 +31,17 @@ class ProjectListSerializer(generics.ListAPIView):
 		return Project.objects.filter(owner=user)
 
 
-class ProjectAddManagerView(generics.UpdateAPIView):
-	serializer_class = ProjectDetailSerializer
-	queryset = Project.objects.all()
-	permissions = (IsAuthenticated, IsOwnerOrManagerForProject)
-
-	def get_queryset(self):
-		project = self.request.data.get('project')
-		return Project.objects.filter(id=project)
-
-	# def update(self, request, *args, **kwargs):
-	# 	instance = self.get_queryset()
-	# 	serializer = ProjectDetailSerializer(instance, data=request.data, partial=True)
-	# 	serializer.is_valid(raise_exception=True)
-	# 	return Response(serializer.data)
+# class ProjectAddManagerView(generics.UpdateAPIView):
+# 	serializer_class = ProjectDetailSerializer
+# 	queryset = Project.objects.all()
+# 	permissions = (IsAuthenticated, IsOwnerOrManagerForProject)
+#
+# 	def get_queryset(self):
+# 		project = self.request.data.get('project')
+# 		return Project.objects.filter(id=project)
+#
+# 	# def update(self, request, *args, **kwargs):
+# 	# 	instance = self.get_queryset()
+# 	# 	serializer = ProjectDetailSerializer(instance, data=request.data, partial=True)
+# 	# 	serializer.is_valid(raise_exception=True)
+# 	# 	return Response(serializer.data)

@@ -15,12 +15,36 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Trello documentation",
+      default_version='v1',
+      contact=openapi.Contact(email="kirillshevchuk2001@gmail.com"),
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('trello.urls')),
-    path('base-auth/', include('rest_framework.urls')),
 
     path('', include('djoser.urls')),
     path('', include('djoser.urls.jwt')),
 ]
+
+if settings.DEBUG:
+    urlpatterns.append(url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0),
+                           name='schema-json'))
+    urlpatterns.append(url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'))
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

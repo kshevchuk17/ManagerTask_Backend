@@ -8,8 +8,8 @@ User = get_user_model()
 
 
 class Project(models.Model):
-	owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='user_projects')
-	managers = models.ManyToManyField(User, related_name='owner_project', blank=True)
+	owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='owner_projects')
+	managers = models.ManyToManyField(User, related_name='manager_project', blank=True)
 	name = models.CharField(verbose_name='Name', max_length=255)
 
 
