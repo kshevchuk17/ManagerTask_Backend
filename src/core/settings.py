@@ -164,9 +164,9 @@ ACCOUNT_EMAIL_VERIFICATION = 'optional'
 #     'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
 #     'SERIALIZERS': {},
 #     'EMAIL': {
-#                 'activation': 'trello.email.ActivationEmail',
-#                 'confirmation': 'trello.email.ConfirmationEmail',
-#                 'password_reset': 'trello.email.PasswordResetEmail',
-#                 'password_changed_confirmation': 'trello.email.PasswordChangedConfirmationEmail',
+#                 'activation': 'trello.utils.email.ActivationEmail',
+#                 'confirmation': 'trello.utils.email.ConfirmationEmail',
+#                 'password_reset': 'trello.utils.email.PasswordResetEmail',
+#                 'password_changed_confirmation': 'trello.utils.email.PasswordChangedConfirmationEmail',
 #     }
 # }
