@@ -9,6 +9,8 @@ djangorestframework = "*"
 djoser = "*"
 psycopg2-binary = "*"
 drf-yasg = "*"
+discord-webhook = "*"
+celery = "*"
 
 [dev-packages]
 

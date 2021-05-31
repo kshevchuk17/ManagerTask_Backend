@@ -170,3 +170,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'optional'
 #                 'password_changed_confirmation': 'trello.utils.email.PasswordChangedConfirmationEmail',
 #     }
 # }
+
+CELERY_TIMEZONE = "Europe/Moscow"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
