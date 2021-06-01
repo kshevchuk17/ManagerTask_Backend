@@ -17,13 +17,17 @@ class Project(models.Model):
 
     def __init__(self, *args, **kwargs):
         super(Project, self).__init__(*args, **kwargs)
-        if self.managers.all():
-            self._old_managers = [i for i in self.managers.all()]
+        try:
+            self._old_managers = self.managers.all()
+        except ValueError:
+            pass
 
     def save(self, *args, **kwargs):
         super(Project, self).save(*args, **kwargs)
-        if self.managers.all():
-            self._old_managers = [i for i in self.managers.all()]
+        try:
+            self._old_managers = self.managers.all()
+        except ValueError:
+            pass
 
 
 class Column(models.Model):
@@ -42,13 +46,13 @@ def create_columns(sender, instance, created, **kwargs):
 @receiver(m2m_changed, sender=Project.managers.through)
 def add_manager_in_project(sender, instance, **kwargs):
     for manager in [i for i in instance.managers.all()]:
-        if manager not in instance._old_managers:
+        if manager not in [i for i in instance._old_managers.all()]:
             added_manager(url=instance.discord_url, manager=manager)
 
 
 @receiver(m2m_changed, sender=Project.managers.through)
-def add_manager_in_project(sender, instance, **kwargs):
-    for manager in instance._old_managers:
+def deleted_manager_from_project(sender, instance, **kwargs):
+    for manager in [i for i in instance._old_managers.all()]:
         if manager not in [i for i in instance.managers.all()]:
             deleted_manager(url=instance.discord_url, manager=manager)
 
@@ -110,3 +114,4 @@ class Comment(models.Model):
     owner = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, related_name='comments')
     task = models.ForeignKey(Task, on_delete=models.CASCADE, null=False, related_name='comments')
     comment = models.TextField(verbose_name='Comment')
+#
