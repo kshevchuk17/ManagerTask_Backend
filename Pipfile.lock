@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3fe3c8933e077bdafb74f88a1a1ea31d843e652040193af182ebd0f553263197"
+            "sha256": "7366ded6c8065c71abdf157b8e21003af09bc21e8d2206705b7f952139cb4e05"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -47,10 +47,10 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c",
-                "sha256:719a74fb9e33b9bd44cc7f3a8d94bc35e4049deebe19ba7d8e108280cfd59830"
+                "sha256:2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee",
+                "sha256:50b1e4f8446b06f41be7dd6338db18e0990601dce795c2b1686458aa7e8fa7d8"
             ],
-            "version": "==2020.12.5"
+            "version": "==2021.5.30"
         },
         "cffi": {
             "hashes": [
@@ -135,10 +135,10 @@
         },
         "click-repl": {
             "hashes": [
-                "sha256:9c4c3d022789cae912aad8a3f5e1d7c2cdd016ee1225b5212ad3e8691563cda5",
-                "sha256:b9f29d52abc4d6059f8e276132a111ab8d94980afe6a5432b9d996544afa95d5"
+                "sha256:94b3fbbc9406a236f176e0506524b2937e4b23b6f4c0c0b2a0a83f8a64e9194b",
+                "sha256:cd12f68d745bf6151210790540b4cb064c7b13e571bc64b6957d98d120dacfd8"
             ],
-            "version": "==0.1.6"
+            "version": "==0.2.0"
         },
         "coreapi": {
             "hashes": [
@@ -211,10 +211,10 @@
         },
         "djangorestframework-simplejwt": {
             "hashes": [
-                "sha256:14473248c408e29290bde3b76df32ebbaeaaa096d8b2c3a77778e9e8f7d73d2c",
-                "sha256:9872a0fca6c7ae74a162254c4e5d9c998f8e8800b9bf2ad507087e98ef283a39"
+                "sha256:3242f35aaab0db6e2a5636a0ccfc49ff06943809ec063d1356253d1bf28b80a3",
+                "sha256:c0e9b617da337becb55e67935eb992fad84f861418e7ab5fb3e77a3fd18d4137"
             ],
-            "version": "==4.7.0"
+            "version": "==4.7.1"
         },
         "djoser": {
             "hashes": [
@@ -231,6 +231,14 @@
             ],
             "index": "pypi",
             "version": "==1.20.0"
+        },
+        "gunicorn": {
+            "hashes": [
+                "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e",
+                "sha256:e0a968b5ba15f8a328fdfd7ab1fcb5af4470c28aaf7e55df02a99bc13138e6e8"
+            ],
+            "index": "pypi",
+            "version": "==20.1.0"
         },
         "idna": {
             "hashes": [
@@ -420,10 +428,10 @@
         },
         "ruamel.yaml": {
             "hashes": [
-                "sha256:44bc6b54fddd45e4bc0619059196679f9e8b79c027f4131bb072e6a22f4d5e28",
-                "sha256:ac79fb25f5476e8e9ed1c53b8a2286d2c3f5dde49eb37dbcee5c7eb6a8415a22"
+                "sha256:5605cb8ceeebaeed85ae4e97fc80547eca1b3537c163404ffe83f26adf5c9ce7",
+                "sha256:748bbdddf9e7f6e1aad9481dfdd93a42f9c39c45821a0f09a31309cd0086e803"
             ],
-            "version": "==0.17.4"
+            "version": "==0.17.6"
         },
         "ruamel.yaml.clib": {
             "hashes": [

@@ -11,6 +11,7 @@ psycopg2-binary = "*"
 drf-yasg = "*"
 discord-webhook = "*"
 celery = "*"
+gunicorn = "*"
 
 [dev-packages]
 
