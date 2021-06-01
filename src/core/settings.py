@@ -34,7 +34,7 @@ if os.environ.get('DJANGO_DEBUG', '') == "False":
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
