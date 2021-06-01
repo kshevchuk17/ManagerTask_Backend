@@ -17,11 +17,13 @@ class Project(models.Model):
 
     def __init__(self, *args, **kwargs):
         super(Project, self).__init__(*args, **kwargs)
-        self._old_managers = [i for i in self.managers.all()]
+        if self.managers.all():
+            self._old_managers = [i for i in self.managers.all()]
 
     def save(self, *args, **kwargs):
         super(Project, self).save(*args, **kwargs)
-        self._old_managers = [i for i in self.managers.all()]
+        if self.managers.all():
+            self._old_managers = [i for i in self.managers.all()]
 
 
 class Column(models.Model):
