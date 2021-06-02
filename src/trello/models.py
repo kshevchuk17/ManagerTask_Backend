@@ -15,19 +15,15 @@ class Project(models.Model):
     discord_url = models.URLField(verbose_name='Disckord URL', null=True, blank=True, default=None)
     _old_managers = []
 
-    def __init__(self, *args, **kwargs):
-        super(Project, self).__init__(*args, **kwargs)
-        try:
-            self._old_managers = self.managers.all()
-        except ValueError:
-            pass
+    # def __init__(self, *args, **kwargs):
+    #     super(Project, self).__init__(*args, **kwargs)
+    #     if self.managers:
+    #         self._old_managers = self.managers
 
     def save(self, *args, **kwargs):
         super(Project, self).save(*args, **kwargs)
-        try:
-            self._old_managers = self.managers.all()
-        except ValueError:
-            pass
+        if self.managers:
+            self._old_managers = self.managers
 
 
 class Column(models.Model):
