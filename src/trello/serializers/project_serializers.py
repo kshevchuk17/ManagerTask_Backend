@@ -11,7 +11,6 @@ class ProjectDetailSerializer(serializers.ModelSerializer):
 		fields = ('owner', 'managers', 'name', 'discord_url', 'columns')
 
 
-
 class ProjectListSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Project

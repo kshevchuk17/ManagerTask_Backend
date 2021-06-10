@@ -5,6 +5,7 @@ from trello.permissions import *
 from trello.models import *
 from rest_framework.permissions import IsAuthenticated
 from trello.serializers.tasks_serializers import *
+from trello.serializers.project_serializers import *
 
 
 class TaskCreateView(generics.CreateAPIView):
@@ -19,3 +20,13 @@ class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
 	serializer_class = TaskDetailSerializer
 	queryset = Task.objects.all()
 	permission_classes = (IsAuthenticated, IsOwnerOrManagerForTask)
+
+
+class TasksAssigneeListView(generics.ListAPIView):
+	serializer_class = TasksAssigneeListSerializer
+	queryset = Task.objects.all()
+	permission_classes = (IsAuthenticated, IsOwnerOrManagerForProject)
+
+	def get_queryset(self):
+		user = self.request.user
+		return Task.objects.filter(assignee=user)

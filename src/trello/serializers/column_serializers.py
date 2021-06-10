@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from trello.models import *
 from .tasks_serializers import *
+from .project_serializers import *
 
 
 class ColumnDetailSerializer(serializers.ModelSerializer):

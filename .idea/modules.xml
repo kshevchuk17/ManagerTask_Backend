@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TestTaskForBotConversa.iml" filepath="$PROJECT_DIR$/.idea/TestTaskForBotConversa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ManagerTask_Backend/.idea/ManagerTask_Backend.iml" filepath="$PROJECT_DIR$/../ManagerTask_Backend/.idea/ManagerTask_Backend.iml" />
     </modules>
   </component>
 </project>

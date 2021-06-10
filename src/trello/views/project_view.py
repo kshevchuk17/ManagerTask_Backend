@@ -20,7 +20,7 @@ class ProjectCreateView(generics.CreateAPIView):
 		serializer.save(owner=self.request.user)
 
 
-class ProjectListSerializer(generics.ListAPIView):
+class ProjectListView(generics.ListAPIView):
 	serializer_class = ProjectListSerializer
 	queryset = Project.objects.all()
 	permission_classes = (IsAuthenticated, IsOwnerOrManagerForProject)
